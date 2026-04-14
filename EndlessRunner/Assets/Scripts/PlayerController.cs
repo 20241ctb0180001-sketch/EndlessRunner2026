@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpForce = 10;
     [SerializeField] float gravityModifier;
     private bool isOnGround;
-    public bool gameOver;
+    public static bool gameOver;
     private Animator playerAnim;
     public ParticleSystem explosionParticle;
     public ParticleSystem dirtParticle;
@@ -48,5 +48,10 @@ public class PlayerController : MonoBehaviour
             dirtParticle.Stop();
             explosionParticle.Play();
         }     
+    }
+
+    public static bool IsGameOver()
+    {
+        return gameOver;
     }
 }
