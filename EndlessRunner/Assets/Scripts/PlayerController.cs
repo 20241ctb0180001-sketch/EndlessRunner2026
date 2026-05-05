@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpForce = 10;
     [SerializeField] float gravityModifier;
     private bool isOnGround;
-    public static bool gameOver;
+    private static bool gameOver;
     private Animator playerAnim;
     public ParticleSystem explosionParticle;
     public ParticleSystem dirtParticle;
@@ -44,8 +44,7 @@ public class PlayerController : MonoBehaviour
     {
         InputActions.FindActionMap("Player").Disable();
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (/*Input.GetKeyDown(KeyCode.Space)*/jumpAction.WasPressedThisFrame() && isOnGround && !gameOver)
