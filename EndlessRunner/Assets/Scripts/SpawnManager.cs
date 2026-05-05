@@ -8,7 +8,7 @@ public class SpawnManager : MonoBehaviour
     private Vector3 spawnPos = new Vector3(25, 0, 0);
     private float startDelay = 2;
     private float repeatRate = 2;
-    //[SerializeField] PlayerController playerControllerScript;
+    [SerializeField] PlayerController playerController;
     void Start()
     {
         //playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
@@ -18,7 +18,10 @@ public class SpawnManager : MonoBehaviour
     void SpawnObstable ()
     {
         if (!PlayerController.IsGameOver()) {
-            Instantiate(obstaclePrefab, spawnPos, obstaclePrefab.transform.rotation);
+            GameObject obstacle = Instantiate(obstaclePrefab, spawnPos, obstaclePrefab.transform.rotation);
+            MoveLeft moveLeftScript = obstacle.GetComponent<MoveLeft>();
+            moveLeftScript.Init(playerController);
+            //Instantiate(obstaclePrefab, spawnPos, obstaclePrefab.transform.rotation);
         }
     } 
 }
