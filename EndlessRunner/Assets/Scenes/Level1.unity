@@ -805,8 +805,20 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 400046, guid: 6d1ecaa4585db37418bbe9e4caff3cae, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400046, guid: 6d1ecaa4585db37418bbe9e4caff3cae, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400046, guid: 6d1ecaa4585db37418bbe9e4caff3cae, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400046, guid: 6d1ecaa4585db37418bbe9e4caff3cae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 400046, guid: 6d1ecaa4585db37418bbe9e4caff3cae, type: 3}
       propertyPath: m_LocalPosition.y
@@ -814,7 +826,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400046, guid: 6d1ecaa4585db37418bbe9e4caff3cae, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400046, guid: 6d1ecaa4585db37418bbe9e4caff3cae, type: 3}
       propertyPath: m_LocalRotation.w
@@ -884,13 +896,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f22c3f5a15d53048906a467ae1963fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 700
+  jumpForce: 500
   gravityModifier: 1.5
   explosionParticle: {fileID: 230790461}
   dirtParticle: {fileID: 1968152797}
   currentLifes: 0
   maxLifes: 3
-  InputActions: {fileID: 0}
+  InputActions: {fileID: -944628639613478452, guid: 289c1b55c9541489481df5cc06664110, type: 3}
   hudManager: {fileID: 1546912982}
 --- !u!65 &1037827343
 BoxCollider:
@@ -972,7 +984,7 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: df70fa95-8a34-4494-b137-73ab6b9c7d37
+  m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 534669904}
 --- !u!1 &1424893917
