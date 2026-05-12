@@ -468,6 +468,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!137 &173906915 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 13715856, guid: 6d1ecaa4585db37418bbe9e4caff3cae, type: 3}
+  m_PrefabInstance: {fileID: 1037827340}
+  m_PrefabAsset: {fileID: 0}
 --- !u!198 &230790461 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 9125212449759046732, guid: cb7cd9b0c56a24d49a40784bd3203ae6, type: 3}
@@ -903,6 +908,9 @@ MonoBehaviour:
   currentLifes: 0
   maxLifes: 3
   InputActions: {fileID: -944628639613478452, guid: 289c1b55c9541489481df5cc06664110, type: 3}
+  rend: {fileID: 173906915}
+  flash: {r: 1, g: 0, b: 0, a: 1}
+  flashDuration: 0.1
   hudManager: {fileID: 1546912982}
 --- !u!65 &1037827343
 BoxCollider:

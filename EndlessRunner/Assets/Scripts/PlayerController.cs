@@ -20,6 +20,11 @@ public class PlayerController : MonoBehaviour
     public InputActionAsset InputActions;
     private InputAction jumpAction;
 
+    public Renderer rend;
+    public Color flash = Color.red;
+    public float flashDuration = 0.5f;
+    private Color originalColor;
+
     [SerializeField] HudManager hudManager;
 
     // Start is called before the first frame update
@@ -29,6 +34,7 @@ public class PlayerController : MonoBehaviour
     }
     void Start()
     {
+        originalColor = rend.material.color;
         playerRb = GetComponent<Rigidbody>();
         Physics.gravity *= gravityModifier;
         playerAnim = GetComponent<Animator>();
@@ -65,6 +71,7 @@ public class PlayerController : MonoBehaviour
         } else if (collision.gameObject.CompareTag("Obstacle"))
         {
             currentLifes--;
+            Flash();
             hudManager.UpdateLifes(currentLifes);
             if(currentLifes == 0)
             {
@@ -100,6 +107,18 @@ public class PlayerController : MonoBehaviour
         dirtParticle.Stop();
         explosionParticle.Play();
         QuitApplication();
+    }
+
+    private IEnumerator FlashRed()
+    {
+        rend.material.color = flash;
+        yield return new WaitForSeconds(flashDuration);
+        rend.material.color = originalColor;
+    }
+
+    public void Flash()
+    {
+        StartCoroutine(FlashRed());
     }
 
     public void QuitApplication()
