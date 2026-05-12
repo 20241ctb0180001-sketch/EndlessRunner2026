@@ -906,7 +906,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 500
-  gravityModifier: 1.5
+  gravityModifier: 1.3
   explosionParticle: {fileID: 230790461}
   dirtParticle: {fileID: 1968152797}
   currentLifes: 0
