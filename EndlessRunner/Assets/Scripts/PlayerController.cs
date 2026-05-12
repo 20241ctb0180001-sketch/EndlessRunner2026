@@ -68,12 +68,13 @@ public class PlayerController : MonoBehaviour
             hudManager.UpdateLifes(currentLifes);
             if(currentLifes == 0)
             {
-                processGameOver();
+                //processGameOver();
+                StartCoroutine(Game0(2.5f));
             }
         }     
     }
 
-    private void processGameOver()
+    /*private void processGameOver()
     {
         Debug.Log("Game Over");
         gameOver = true;
@@ -81,10 +82,32 @@ public class PlayerController : MonoBehaviour
         playerAnim.SetBool("Death_b", true);
         dirtParticle.Stop();
         explosionParticle.Play();
-    }
+        QuitApplication();
+    }*/
 
     public static bool IsGameOver()
     {
         return gameOver;
+    }
+
+    private IEnumerator Game0(float wait)
+    {
+        Debug.Log("Game Over");
+        gameOver = true;
+        playerAnim.SetInteger("DeathType_int", 1);
+        playerAnim.SetBool("Death_b", true);
+        yield return new WaitForSeconds(wait);
+        dirtParticle.Stop();
+        explosionParticle.Play();
+        QuitApplication();
+    }
+
+    public void QuitApplication()
+    {
+    #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+    #else
+        Application.Quit();
+    #endif
     }
 }
