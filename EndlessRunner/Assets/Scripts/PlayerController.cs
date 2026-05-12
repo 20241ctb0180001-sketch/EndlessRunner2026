@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     public int currentLifes;
     [SerializeField] int maxLifes;
 
-    public InputActionAsset InputActions;
+    [SerializeField] InputActionAsset inputActions;
     private InputAction jumpAction;
 
     public Renderer rend;
@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        jumpAction = InputSystem.actions.FindAction("Jump");
+        jumpAction = inputActions.FindAction("Jump");
     }
     void Start()
     {
@@ -44,11 +44,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnEnable()
     {
-        InputActions.FindActionMap("Player").Enable();
+        jumpAction.Enable();
     }
         private void OnDisable()
     {
-        InputActions.FindActionMap("Player").Disable();
+        jumpAction.Disable();
     }
     
     void Update()
@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
         } else if (collision.gameObject.CompareTag("Obstacle"))
         {
             currentLifes--;
-            Flash();
+            StartCoroutine(FlashRed());
             hudManager.UpdateLifes(currentLifes);
             if(currentLifes == 0)
             {
@@ -103,9 +103,9 @@ public class PlayerController : MonoBehaviour
         gameOver = true;
         playerAnim.SetInteger("DeathType_int", 1);
         playerAnim.SetBool("Death_b", true);
-        yield return new WaitForSeconds(wait);
         dirtParticle.Stop();
         explosionParticle.Play();
+        yield return new WaitForSeconds(wait);
         QuitApplication();
     }
 
@@ -115,12 +115,6 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(flashDuration);
         rend.material.color = originalColor;
     }
-
-    public void Flash()
-    {
-        StartCoroutine(FlashRed());
-    }
-
     public void QuitApplication()
     {
     #if UNITY_EDITOR

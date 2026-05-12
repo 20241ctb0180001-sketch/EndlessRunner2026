@@ -805,6 +805,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 190934, guid: 6d1ecaa4585db37418bbe9e4caff3cae, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400046, guid: 6d1ecaa4585db37418bbe9e4caff3cae, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -907,7 +911,7 @@ MonoBehaviour:
   dirtParticle: {fileID: 1968152797}
   currentLifes: 0
   maxLifes: 3
-  InputActions: {fileID: -944628639613478452, guid: 289c1b55c9541489481df5cc06664110, type: 3}
+  inputActions: {fileID: -944628639613478452, guid: 289c1b55c9541489481df5cc06664110, type: 3}
   rend: {fileID: 173906915}
   flash: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.1
